@@ -1,4 +1,4 @@
-install.packages(c("base", "readr", "readxl", "sf", "spdep", "spatialreg", "pandoc", "rstatix",
+install.packages(c("readr", "readxl", "sf", "spdep", "spatialreg", "pandoc", "rstatix",
                    "tigris", "ggplot2", "dplyr", "viridis", "rgeoda", "gt", "dbscan",
                    "stargazer", "modelsummary", "rstudioapi", "GWmodel", "simex"))
 install.packages("ggeffects")
@@ -23,7 +23,6 @@ library(data.table)
 library(rstatix)
 library(dbscan)
 library(stargazer) 
-library(modelsummary)
 library(rstudioapi)
 library(GWmodel)
 library(simex)
@@ -295,9 +294,6 @@ summary(simex_basicOLS_lin)
 plot(simex_basicOLS_lin)
 summary(simex_basicOLS_quad)
 plot(simex_basicOLS_quad)
-
-
-plot(simex_basicOLS)
 
 gam_OLS <- gam(mammo ~ s(pcp) + s(insured) + s(complete_HS) + s(broadband) + 
       s(income_ratio_80_20) + s(facil_100k) + RUCC_2023 + s(black_race) +
