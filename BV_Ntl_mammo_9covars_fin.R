@@ -918,6 +918,10 @@ wrap_plots(all_plots[c("pcp", "insured", "complete_HS", "RUCC", "facil_100k", "b
 
 #MGWR sendout for the GUI analysis
 
+final_vars <- c("GEOID", "mammo", "pcp", "insured", "complete_HS", 
+                "broadband", "income_ratio_80_20", "facil_100k", 
+                "RUCC_2023", "black_race", "hispanic_race")
+
 mgwr_gui <- complete_mammo_shapes %>% select(final_vars)
 
 mgwr_coords <- st_coordinates(st_centroid(st_transform(mgwr_gui, 5070)))
@@ -926,7 +930,7 @@ MGWR_sendout <- mgwr_gui %>% mutate(X=mgwr_coords[,"X"],
                                     Y=mgwr_coords[,"Y"]) %>%
   st_drop_geometry()
 
-MGWR_sendout <- MGWR_sendout[complete.cases("MGWR_sendout"),]
+MGWR_sendout <- MGWR_sendout[complete.cases(MGWR_sendout),]
 
 write.csv(MGWR_sendout, "mgwr_sendout_5070.csv", row.names=F)
 
