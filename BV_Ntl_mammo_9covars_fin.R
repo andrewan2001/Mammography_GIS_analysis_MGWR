@@ -32,6 +32,7 @@ library(mgcv)
 library(ggeffects)
 library(brms)
 library(ggpattern)
+library(patchwork) #grid plots
 
 #import datasets
 X2025_County_Health_Rankings_Data_v4 <- read_excel("2025 County Health Rankings Data - v4.xlsx", 
@@ -772,7 +773,6 @@ wrap_plots(plot_mammo_chloro, plot_mam_LISA, ncol=1)
 
 #LISA FUNCTION BUILDING
 
-library(patchwork) #grid plots
 
 LISA_func <- function(x, y, title) {
   
